@@ -14,12 +14,12 @@ jobs:
       uses: actions/checkout@master
     - name: Check terminal
       run: ls
-    # - name: Install ArgoCD
-    #   uses: ghostzero/kubectl@v1
-    #   env:
-    #     KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-    #   with:
-    #     args: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
+    - name: Install ArgoCD
+      uses: ghostzero/kubectl@v1
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: apply -k argocd-install/
     # - name: verify deployment
     #   uses: ghostzero/kubectl@v1
     #   env:
