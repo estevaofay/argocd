@@ -1,18 +1,9 @@
 on: 
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Choose cluster to install ArgoCD
-        options:
-          - "exciting-mushroom-1652034707"
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
       environment:
         type: environment
+        description: Choose environment to install ArgoCD
 name: Install ArgoCD
 jobs:
   deploy:
