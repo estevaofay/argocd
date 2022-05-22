@@ -12,12 +12,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@master
-    - name: Check terminal
-      run: ls
     - name: Install ArgoCD
-      uses: ghostzero/kubectl@v1
+      uses: myrotvorets/kubectl-action@2.0.0
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        version: latest
       with:
         args: apply -k argocd-install/
     # - name: verify deployment
