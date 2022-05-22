@@ -1,5 +1,12 @@
-on: push
-name: deploy
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Choose cluster to install ArgoCD
+        options:
+          - "exciting-mushroom-1652034707"
+name: Install ArgoCD
 jobs:
   deploy:
     name: deploy to cluster
