@@ -7,7 +7,7 @@ bases:
 
 resources:
   - argocd-namespace.yaml
-  - github-secret.yaml
+  # - github-secret.yaml
 
 patches:
 - path: argocd-server-patch.yaml
