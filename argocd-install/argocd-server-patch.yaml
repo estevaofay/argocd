@@ -4,4 +4,3 @@
     - argocd-server
     - --staticassets
     - /shared/app
-    - --insecure
