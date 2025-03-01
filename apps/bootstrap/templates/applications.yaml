@@ -1,0 +1,27 @@
+{{- range $app := .Values.applications }}
+{{- range $microservice := $app.microservices }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $microservice.name }}
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ ($microservice.precedence | quote) | default ("5" | quote) }}    
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bootstrap
+  source:
+    repoURL: git@github.com:estevaofay/argocd.git
+    targetRevision: {{ $.Values.targetRevision }}
+    path: charts/{{ $microservice.name }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ ($microservice.namespace | default $app.namespace) | default "default" }}
+  syncPolicy:
+    automated:
+      prune: {{ $microservice.prune | default true }}
+      selfHeal: {{ $microservice.selfHeal | default true }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,51 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+  - cert-manager.yaml
+  - cloudwatch.yaml
+  - default.yaml
+  - external-dns.yaml
+  - external-secrets.yaml
+  - istio-system.yaml
+  - istio-ingress.yaml
+  - kiali.yaml
+  - market-data-cronjob.yaml
+  - market-data-service.yaml
+  - metrics-server.yaml
+  - mock-service.yaml
+  - nginx-ingress.yaml
+  - onboarding-service.yaml
+  - vector-orders-job.yaml
+  - vector-account-status-job.yaml
+
+
+secretGenerator:
+  - name: ecr-auth
+    namespace: vector-orders-job
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson
+  - name: ecr-auth
+    namespace: vector-account-status-job
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson
+  - name: ecr-auth
+    namespace: market-data-cronjob
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson
+  - name: ecr-auth
+    namespace: market-data-service
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson
+  - name: ecr-auth
+    namespace: mock-service
+    type: kubernetes.io/dockerconfigjson
+    files:
+      - .dockerconfigjson
