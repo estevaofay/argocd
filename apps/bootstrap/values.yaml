@@ -1,4 +1,6 @@
 targetRevision: main
 
 applications:
-  - microservices: []
+  - microservices:
+      - name: httpbin
+        namespace: httpbin
