@@ -1,4 +1,4 @@
-targetRevision: devel
+targetRevision: main
 
 applications:
   - microservices: []
