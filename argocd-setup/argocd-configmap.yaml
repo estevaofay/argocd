@@ -4,15 +4,15 @@ metadata:
   name: argocd-cm
   namespace: argocd
 data:
-  url: http://argocd-server.argocd.svc.cluster.local
   admin.enabled: "false"
   users.anonymous.enabled: "false"
   dex.config: |
     connectors:
       - type: github
         id: github
-        name: Mentum-Inc
+        name: GitHub
         config:
           clientID: Ov23liIsz9w1L8YYWxKW
           clientSecret: acc63db4992d3882e0a957f7f220d832ae4a0360
           redirectURI: http://argocd-server.argocd.svc.cluster.local
+  url: http://argocd-server.argocd.svc.cluster.local
