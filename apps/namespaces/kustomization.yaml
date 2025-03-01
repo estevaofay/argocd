@@ -5,7 +5,8 @@ generatorOptions:
   disableNameSuffixHash: true
 
 resources:
-  - httpbin.yaml
   - default.yaml
+  - httpbin.yaml
+  - ingress-nginx.yaml
 
 secretGenerator: []
