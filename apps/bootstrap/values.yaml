@@ -4,5 +4,5 @@ applications:
   - microservices:
       - name: httpbin
         namespace: httpbin
-      # - name: ingress-nginx
-      #   namespace: ingress-nginx
+      - name: ingress-nginx
+        namespace: ingress-nginx
