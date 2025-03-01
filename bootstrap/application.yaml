@@ -7,7 +7,7 @@ spec:
   project: bootstrap
   source:
     repoURL: git@github.com:estevaofay/argocd.git
-    targetRevision: production
+    targetRevision: main
     path: apps/bootstrap
   destination:
     server: https://kubernetes.default.svc

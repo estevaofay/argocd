@@ -15,4 +15,4 @@ data:
     p, role:org-admin, repositories, delete, *, allow
     p, role:org-admin, logs, get, *, allow
     p, role:org-admin, exec, create, */*, allow
-  policy.default: role:empty
+  policy.default: role:org-admin

@@ -5,6 +5,7 @@ generatorOptions:
   disableNameSuffixHash: true
 
 resources:
+  - httpbin.yaml
   - default.yaml
 
 secretGenerator: []
