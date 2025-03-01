@@ -14,5 +14,5 @@ data:
         config:
           clientID: Ov23liIsz9w1L8YYWxKW
           clientSecret: acc63db4992d3882e0a957f7f220d832ae4a0360
-          redirectURI: http://argocd-server.argocd.svc.cluster.local
-  url: http://argocd-server.argocd.svc.cluster.local
+          redirectURI: http://argocd-server.argocd.svc.cluster.local/api/dex/callback
+  url: http://argocd.fayhome.local
